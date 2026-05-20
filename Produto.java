@@ -1,4 +1,5 @@
-//Objetivo da classe PRODUTOS é guardar informações/ Estrutura principal
+//Objetivo da classe PRODUTOS é guardar informações
+// Estrutura principal
 //Produto será a representação da roupa
 // utilizando o private para o encapsulamento.
 
