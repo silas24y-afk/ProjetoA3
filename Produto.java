@@ -5,83 +5,98 @@
 
 
 public class Produto {
-//Atributos
-        private int id;
-        private String nome;
-        private String marca;
-        private String tamanho;
-        private String cor;
-        private double preco;
-        private int quantidade;
 
-//Construtores
-//Construtor vazio
+    // Controle automático do ID
+    private static int proximoId = 1;
 
-public Produto (){} // construtor vazio
+    // Atributos
+    private int id;
+    private String nome;
+    private String marca;
+    private String tamanho;
+    private String cor;
+    private double preco;
+    private int quantidade;
 
-//Construtor completo
-public Produto (String nome,String marca,String tamanho,String cor, double preco, int quantidade){
-}
-
-//Construtor com o Id
-public Produto (int id){}
-
-// Métodos getters e Setters
-
-public int getId (){
-    return id;
-}
-public void setId( int id){
-    this.id=id;
-}
-
-public String getNome (){
-    return nome;
-}
-
-public void setNome(String nome){
-    this.nome=nome;
+    // Construtor vazio
+    public Produto() {
     }
 
-public String getMarca(){
-    return marca;
-}
+    // Construtor completo
+    public Produto(String nome, String marca, String tamanho,
+                   String cor, double preco, int quantidade) {
 
-public void setMarca(String marca) {
-    this.marca = marca;
-}
+        this.id = proximoId++;
 
-public String getTamanho(){
-    return tamanho;
-}
+        this.nome = nome;
+        this.marca = marca;
+        this.tamanho = tamanho;
+        this.cor = cor;
+        this.preco = preco;
+        this.quantidade = quantidade;
+    }
 
-public void setTamanho(String tamanho){
-    this.tamanho=tamanho;
-}
+    // Construtor utilizado para pesquisa
+    public Produto(int id) {
+        this.id = id;
+    }
 
-public String getCor(){
-    return cor;
-}
-public void setCor(String cor){
-    this.cor=cor;
-}
+    // Getters e Setters
 
-public double getPreco(){
-    return preco;
-}
-public void setPreco( double preco){
-    this.preco=preco;
-}
+    public int getId() {
+        return id;
+    }
 
-public int getQuantidade(){
-    return quantidade;
-}
+    // Opcional: pode remover este setter para evitar alteração manual do ID
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getMarca() {
+        return marca;
+    }
+
+    public void setMarca(String marca) {
+        this.marca = marca;
+    }
+
+    public String getTamanho() {
+        return tamanho;
+    }
+
+    public void setTamanho(String tamanho) {
+        this.tamanho = tamanho;
+    }
+
+    public String getCor() {
+        return cor;
+    }
+
+    public void setCor(String cor) {
+        this.cor = cor;
+    }
+
+    public double getPreco() {
+        return preco;
+    }
+
+    public void setPreco(double preco) {
+        this.preco = preco;
+    }
+
+    public int getQuantidade() {
+        return quantidade;
+    }
+
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
     }
 }
-
-
-
-
-
