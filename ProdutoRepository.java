@@ -34,7 +34,7 @@ public class ProdutoRepository implements ProdutoCRUD {
             }
         }
 
-        return -1;
+        return -1;// Quando o elemento não for encontrado
     }
 
     @Override
