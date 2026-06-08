@@ -1,5 +1,4 @@
 //Objetivo da classe PRODUTOS é guardar informações
-// Estrutura principal
 //Produto será a representação da roupa
 // utilizando o private para o encapsulamento.
 
@@ -18,7 +17,7 @@ public class Produto {
     private double preco;
     private int quantidade;
 
-    // Construtor vazio
+    // Construtor vazio/  boa prática e para se caso usarmos o framework
     public Produto() {
     }
 
