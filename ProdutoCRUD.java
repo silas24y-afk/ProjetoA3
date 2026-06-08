@@ -1,4 +1,6 @@
 // Criando interface
+//Todos abaixo são métodos
+//Usamos boolean para true or false
 
 public interface ProdutoCRUD {
     public boolean inserir(Produto produto);//Adiciona um novo produto no array.
