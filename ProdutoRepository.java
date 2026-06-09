@@ -3,14 +3,13 @@ public class ProdutoRepository implements ProdutoCRUD {
     private Produto[] produtos;
     private int quantidade;
 
-    // Construtor
     public ProdutoRepository() {
         produtos = new Produto[10];
         quantidade = 0;
     }
 
-    // Método privado para aumentar o tamanho do array em 50%
     private void aumentarArray() {
+
         int novoTamanho = produtos.length + (produtos.length / 2);
 
         Produto[] novoArray = new Produto[novoTamanho];
@@ -22,7 +21,6 @@ public class ProdutoRepository implements ProdutoCRUD {
         produtos = novoArray;
     }
 
-    // Método privado para localizar a posição do produto
     private int pesquisarIndice(int id) {
 
         for (int i = 0; i < quantidade; i++) {
@@ -34,7 +32,7 @@ public class ProdutoRepository implements ProdutoCRUD {
             }
         }
 
-        return -1;// Quando o elemento não for encontrado
+        return -1;//Quando o elemento não for encontrado
     }
 
     @Override
@@ -71,7 +69,6 @@ public class ProdutoRepository implements ProdutoCRUD {
             return false;
         }
 
-        // Desloca os elementos para a esquerda
         for (int i = indice; i < quantidade - 1; i++) {
             produtos[i] = produtos[i + 1];
         }
@@ -108,5 +105,17 @@ public class ProdutoRepository implements ProdutoCRUD {
         produtos[indice].setPreco(preco);
 
         return true;
+    }
+
+    @Override
+    public Produto[] listarProdutos() {
+
+        Produto[] lista = new Produto[quantidade];
+
+        for (int i = 0; i < quantidade; i++) {
+            lista[i] = produtos[i];
+        }
+
+        return lista;
     }
 }
