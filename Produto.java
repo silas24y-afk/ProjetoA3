@@ -1,33 +1,31 @@
-//Objetivo da classe PRODUTOS é guardar informações
-//Produto será a representação da roupa
-// utilizando o private para o encapsulamento.
-
-
 public class Produto {
 
-    // Controle automático do ID
     private static int proximoId = 1;
 
-    // Atributos
+    //Private serve para o encapsulamento
     private int id;
     private String nome;
+    private String peca_roupa;
     private String marca;
     private String tamanho;
     private String cor;
     private double preco;
     private int quantidade;
 
-    // Construtor vazio/  boa prática e para se caso usarmos o framework
+
+    //Construtor vazio, boa prática e para quando usarmos framework
     public Produto() {
     }
 
-    // Construtor completo
-    public Produto(String nome, String marca, String tamanho,
+    //Construtor com paramêtros
+    public Produto(String nome, String peca_roupa, String marca, String tamanho,
                    String cor, double preco, int quantidade) {
 
-        this.id = proximoId++;
+        //Usado para diferenciar o atributo da classe do paramêtro do método ou construr
 
+        this.id = proximoId++;
         this.nome = nome;
+        this.peca_roupa = peca_roupa;
         this.marca = marca;
         this.tamanho = tamanho;
         this.cor = cor;
@@ -35,20 +33,23 @@ public class Produto {
         this.quantidade = quantidade;
     }
 
-    // Construtor utilizado para pesquisa
     public Produto(int id) {
         this.id = id;
     }
-
-    // Getters e Setters
 
     public int getId() {
         return id;
     }
 
-    // Opcional: pode remover este setter para evitar alteração manual do ID
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getPeca_roupa() {
+        return peca_roupa;
+    }
+    public void setPeca_roupa(String peca_roupa) {
+
     }
 
     public String getNome() {
@@ -97,5 +98,17 @@ public class Produto {
 
     public void setQuantidade(int quantidade) {
         this.quantidade = quantidade;
+    }
+
+    @Override
+    public String toString() {
+        return "ID: " + id +
+                "\nNome: " + nome +
+                "\nPeça de Roupa: " + peca_roupa +
+                "\nMarca: " + marca +
+                "\nTamanho: " + tamanho +
+                "\nCor: " + cor +
+                "\nPreço: R$ " + preco +
+                "\nQuantidade: " + quantidade;
     }
 }
