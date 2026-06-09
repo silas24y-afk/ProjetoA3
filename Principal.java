@@ -1,4 +1,4 @@
-import javax.swing.JOptionPane;
+import javax.swing.JOptionPane;//É uma classe que permite criar janelas simples para interação com o usuário.
 
 public class Principal {
 
@@ -11,14 +11,14 @@ public class Principal {
         do {
             try {
                 String menu =
-                        "=== LOJA DE ROUPAS ===\n\n" +
+                        "=== Estoque De Roupas ===\n\n" +
                                 "1 - Inserir Produto\n" +
                                 "2 - Pesquisar Produto\n" +
                                 "3 - Atualizar Nome\n" +
                                 "4 - Atualizar Preço\n" +
                                 "5 - Remover Produto\n" +
+                                "6 - Listar Produtos\n" +
                                 "0 - Sair";
-
                 opcao = Integer.parseInt(
                         JOptionPane.showInputDialog(menu));
 
@@ -27,6 +27,8 @@ public class Principal {
                     case 1:
 
                         String nome = JOptionPane.showInputDialog("Nome:");
+
+                        String peca_roupa = JOptionPane.showInputDialog("Peça de roupa:");
 
                         String marca = JOptionPane.showInputDialog("Marca:");
 
@@ -42,6 +44,7 @@ public class Principal {
 
                         Produto produto = new Produto(
                                 nome,
+                                peca_roupa,
                                 marca,
                                 tamanho,
                                 cor,
@@ -72,12 +75,12 @@ public class Principal {
                                     null,
                                     "ID: " + encontrado.getId() +
                                             "\nNome: " + encontrado.getNome() +
+                                            "\nPeça de roupa: " + encontrado.getPeca_roupa() +
                                             "\nMarca: " + encontrado.getMarca() +
                                             "\nTamanho: " + encontrado.getTamanho() +
                                             "\nCor: " + encontrado.getCor() +
                                             "\nPreço: R$ " + encontrado.getPreco() +
                                             "\nQuantidade: " + encontrado.getQuantidade());
-
                         } else {
 
                             JOptionPane.showMessageDialog(
@@ -157,6 +160,34 @@ public class Principal {
 
                         break;
 
+                    case 6:
+
+                        Produto[] lista = dao.listarProdutos();
+
+                        if (lista.length == 0) {
+
+                            JOptionPane.showMessageDialog(
+                                    null,
+                                    "Nenhum produto cadastrado!");
+
+                        } else {
+
+                            String mensagem = "";
+
+                            for (Produto p : lista) {
+
+                                mensagem += p.toString()
+                                        + "\n\n-------------------------\n\n";
+                            }
+
+                            JOptionPane.showMessageDialog(
+                                    null,
+                                    mensagem);
+                        }
+
+                        break;
+
+
                     case 0:
 
                         JOptionPane.showMessageDialog(
@@ -172,7 +203,7 @@ public class Principal {
                                 "Opção inválida.");
                 }
             }catch(NumberFormatException e){
-                JOptionPane.showMessageDialog(null,"Escolha uma opção "+ e.getMessage());
+                JOptionPane.showMessageDialog(null,"Escolha uma opção válida!");
             }
 
         } while (opcao != 0) ;
